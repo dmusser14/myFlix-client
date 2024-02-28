@@ -1,5 +1,5 @@
-$color: steelblue;
+$primary: DarkGreen;
+$body-bg: Ivory;
+$body-color: ForestGreen;
 
-.my-flix {
-  color: $color;
-}
+@import "~bootstrap/scss/bootstrap.scss";
