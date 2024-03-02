@@ -1,12 +1,17 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movie = movies.find((movie) => movie.id === movieId);
+  
   return (
     <Row className="my-5 justify-content-center">
       <Col md={5}>
-        <img className="w-100" src={movie.image} alt="movie cover"/>
+        <img className="w-100" src={movie.image} alt="movie cover" />
       </Col>
       <Col md="6">
         <div className="my-1">
@@ -28,8 +33,9 @@ export const MovieView = ({ movie, onBackClick }) => {
           <span className="h5">Rating: </span>
           <span>{movie.rating}</span>
         </div>
-        <Button 
-        onClick={onBackClick}>Back</Button>
+        <Link to ={"/"}>
+          <Button>Back</Button>
+        </Link>
       </Col>
     </Row>
   );
